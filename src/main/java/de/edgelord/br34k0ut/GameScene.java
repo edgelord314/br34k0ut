@@ -10,14 +10,20 @@ public class GameScene extends Scene {
 
     private static boolean firstRun = true;
 
+    public static Ball ball;
+
     public GameScene() {
 
+        Main.audioPlayer.stop("menu-theme");
+        Main.audioPlayer.loop("br34k0ut-theme");
+
+        ball = new Ball(12f);
         addGameObject(new Player(100, 15));
-        addGameObject(new Ball(12f));
+        addGameObject(ball);
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                addGameObject(new Brick(150 + i * (16 + 50), 150 + j * 16));
+                addGameObject(new Brick(150 + i * (16 + 50), 100 + j * 16));
             }
         }
 

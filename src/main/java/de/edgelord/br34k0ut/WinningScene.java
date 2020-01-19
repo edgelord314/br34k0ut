@@ -1,0 +1,55 @@
+package de.edgelord.br34k0ut;
+
+import de.edgelord.saltyengine.core.Game;
+import de.edgelord.saltyengine.core.graphics.SaltyGraphics;
+import de.edgelord.saltyengine.effect.image.SaltyImage;
+import de.edgelord.saltyengine.gameobject.DrawingRoutine;
+import de.edgelord.saltyengine.scene.Scene;
+import de.edgelord.saltyengine.scene.SceneManager;
+import de.edgelord.saltyengine.ui.elements.Button;
+import de.edgelord.saltyengine.utils.ColorUtil;
+
+import java.awt.*;
+import java.awt.event.MouseEvent;
+
+public class WinningScene extends Scene {
+
+    public WinningScene(SaltyImage background) {
+
+        Main.audioPlayer.stop("br34k0ut-theme");
+        Main.audioPlayer.loop("menu-theme");
+
+        addDrawingRoutine(new DrawingRoutine(DrawingRoutine.DrawingPosition.BEFORE_GAMEOBJECTS) {
+            @Override
+            public void draw(SaltyGraphics saltyGraphics) {
+                saltyGraphics.drawImage(background, 0, 0);
+                saltyGraphics.setColor(ColorUtil.DARK_ORANGE);
+                saltyGraphics.setFont(saltyGraphics.getFont().deriveFont(100f));
+                saltyGraphics.drawText("You won Br34k0ut!", Game.getGameWidth() / 2f, Game.getGameHeight() / 2f - 100, SaltyGraphics.TextAnchor.CENTRE);
+            }
+        });
+
+        Button restartButton = new Button("Restart", Game.getHost().getCentrePosition(150, 0), 150, 50) {
+            @Override
+            public void onClick(MouseEvent mouseEvent) {
+                SceneManager.setCurrentScene(new GameScene());
+            }
+        };
+        restartButton.setBackgroundColor(ColorUtil.ACTIVE_GREEN);
+        restartButton.setForegroundColor(ColorUtil.NAVY_BLUE_COLOR);
+        restartButton.setFont(restartButton.getFont().deriveFont(Font.BOLD, 20f));
+
+        Button exitButton = new Button("Exit", Game.getHost().getHorizontalCentrePosition(125), 325, 125, 50) {
+            @Override
+            public void onClick(MouseEvent mouseEvent) {
+                System.exit(0);
+            }
+        };
+        exitButton.setBackgroundColor(ColorUtil.HEART_RED);
+        exitButton.setForegroundColor(ColorUtil.NAVY_BLUE_COLOR);
+        exitButton.setFont(restartButton.getFont().deriveFont(Font.BOLD, 20f));
+
+        getUI().addElement(restartButton);
+        getUI().addElement(exitButton);
+    }
+}

@@ -21,9 +21,9 @@ public class Ball extends GameObject {
     private List<Transform> pastPositions = new ArrayList<>();
 
     public Ball(float diameter) {
-        super(Game.getHost().getHorizontalCentrePosition(diameter), 350, diameter, diameter, "ball");
+        super(Game.getHost().getHorizontalCentrePosition(diameter), 325, diameter, diameter, "ball");
 
-        setRotationDegrees(GeneralUtil.randomInt(181, 359));
+        setRotationDegrees(GeneralUtil.randomInt(45, 135));
         addComponent(onionGhostCreator);
     }
 
