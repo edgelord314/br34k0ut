@@ -23,9 +23,9 @@ public class Main extends Game {
 
     private static void loadAudio() {
         audioPlayer.loadNewAudio("br34k0ut-theme", "Br34k0ut Theme.wav");
-        audioPlayer.setClipVolume("br34k0ut-theme", .5f);
+        audioPlayer.setClipVolume("br34k0ut-theme", .85f);
 
         audioPlayer.loadNewAudio("menu-theme", "Br34k0ut Menu.wav");
-        audioPlayer.setClipVolume("menu-theme", .5f);
+        audioPlayer.setClipVolume("menu-theme", .85f);
     }
 }
