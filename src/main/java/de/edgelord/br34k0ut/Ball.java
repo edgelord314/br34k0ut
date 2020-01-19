@@ -55,7 +55,7 @@ public class Ball extends GameObject {
     public void onFixedTick() {
         moveToFacedDirection(SPEED);
 
-        if (!getTransform().isVisible()) {
+        if (getY() > Game.getGameHeight()) {
             System.out.println("you lost!");
             try {
                 SceneManager.reloadCurrentScene();
@@ -78,6 +78,9 @@ public class Ball extends GameObject {
 
         saltyGraphics.setColor(Color.RED);
         saltyGraphics.drawOval(this);
+        saltyGraphics.setColor(Color.BLACK);
+        saltyGraphics.outlineOval(this);
+        saltyGraphics.setColor(Color.RED);
 
 
         saltyGraphics.resetObjectRotation(this);

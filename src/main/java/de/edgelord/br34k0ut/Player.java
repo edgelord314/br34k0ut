@@ -5,6 +5,7 @@ import de.edgelord.saltyengine.core.event.CollisionEvent;
 import de.edgelord.saltyengine.core.graphics.SaltyGraphics;
 import de.edgelord.saltyengine.gameobject.GameObject;
 import de.edgelord.saltyengine.input.Input;
+import de.edgelord.saltyengine.transform.Transform;
 import de.edgelord.saltyengine.utils.Directions;
 
 import java.awt.*;
@@ -38,7 +39,6 @@ public class Player extends GameObject {
 
     @Override
     public void draw(SaltyGraphics saltyGraphics) {
-
         saltyGraphics.setColor(Color.BLACK);
         saltyGraphics.drawRect(this);
     }
