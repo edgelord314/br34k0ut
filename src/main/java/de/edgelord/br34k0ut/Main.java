@@ -3,8 +3,8 @@ package de.edgelord.br34k0ut;
 import de.edgelord.saltyengine.audio.AudioPlayer;
 import de.edgelord.saltyengine.core.Game;
 import de.edgelord.saltyengine.core.GameConfig;
+import de.edgelord.saltyengine.core.SceneManager;
 import de.edgelord.saltyengine.factory.AudioFactory;
-import de.edgelord.saltyengine.scene.SceneManager;
 import de.edgelord.saltyengine.utils.SaltySystem;
 
 public class Main extends Game {

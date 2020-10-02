@@ -1,18 +1,27 @@
 package de.edgelord.br34k0ut;
 
 import de.edgelord.saltyengine.core.Game;
+import de.edgelord.saltyengine.core.SceneManager;
+import de.edgelord.saltyengine.input.Input;
 import de.edgelord.saltyengine.scene.Scene;
+import de.edgelord.saltyengine.utils.ColorUtil;
 
+import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameScene extends Scene {
 
     private static boolean firstRun = true;
-
     public static Ball ball;
 
-    public GameScene() {
+    private static Color startColor = Game.getHost().getBackgroundColor();
+    private static Color targetColor = Game.getHost().getBackgroundColor();
+    private static double blendRatio = 0.0;
+    private static double blendSteps = 0.0085;
+
+    @Override
+    public void initialize() {
 
         Main.audioPlayer.stop("menu-theme");
         Main.audioPlayer.loop("br34k0ut-theme");
@@ -50,5 +59,22 @@ public class GameScene extends Scene {
     @Override
     public void onFixedTick() {
         super.onFixedTick();
+
+        if (Input.getKeyboardInput().isEscape()) {
+            SceneManager.setCurrentScene(new MenuScene());
+        }
+
+        blendRatio += blendSteps;
+
+        if (blendRatio >= 1.0d) {
+            blendRatio = 1.0d;
+        }
+        Game.getHost().setBackgroundColor(ColorUtil.blend(startColor, targetColor, (float) blendRatio));
+    }
+
+    public static void startColorBlend(final Color end) {
+        startColor = Game.getHost().getBackgroundColor();
+        targetColor = end;
+        blendRatio = 0.0f;
     }
 }

@@ -1,10 +1,10 @@
 package de.edgelord.br34k0ut;
 
 import de.edgelord.saltyengine.core.Game;
+import de.edgelord.saltyengine.core.SceneManager;
 import de.edgelord.saltyengine.core.graphics.SaltyGraphics;
 import de.edgelord.saltyengine.gameobject.DrawingRoutine;
 import de.edgelord.saltyengine.scene.Scene;
-import de.edgelord.saltyengine.scene.SceneManager;
 import de.edgelord.saltyengine.ui.elements.Button;
 import de.edgelord.saltyengine.utils.ColorUtil;
 
@@ -13,7 +13,8 @@ import java.awt.event.MouseEvent;
 
 public class MenuScene extends Scene {
 
-    public MenuScene() {
+    @Override
+    public void initialize() {
 
         Main.audioPlayer.loop("menu-theme");
 

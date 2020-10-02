@@ -2,9 +2,9 @@ package de.edgelord.br34k0ut;
 
 import de.edgelord.saltyengine.components.rendering.RectangleRender;
 import de.edgelord.saltyengine.core.Game;
+import de.edgelord.saltyengine.core.SceneManager;
 import de.edgelord.saltyengine.core.event.CollisionEvent;
 import de.edgelord.saltyengine.gameobject.EmptyGameObject;
-import de.edgelord.saltyengine.scene.SceneManager;
 import de.edgelord.saltyengine.utils.ColorUtil;
 
 public class Brick extends EmptyGameObject {
@@ -21,7 +21,7 @@ public class Brick extends EmptyGameObject {
     @Override
     public void onCollision(CollisionEvent event) {
         removeFromCurrentScene();
-        Game.getHost().setBackgroundColor(rectangleRender.getColor());
+        GameScene.startColorBlend(rectangleRender.getColor());
 
         if (SceneManager.getCurrentScene().getGameObjectCount() <= 5) {
             Game.getHost().setBackgroundColor(ColorUtil.DARK_GRAY);

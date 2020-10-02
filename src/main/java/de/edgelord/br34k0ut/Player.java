@@ -5,9 +5,11 @@ import de.edgelord.saltyengine.core.event.CollisionEvent;
 import de.edgelord.saltyengine.core.graphics.SaltyGraphics;
 import de.edgelord.saltyengine.gameobject.GameObject;
 import de.edgelord.saltyengine.input.Input;
+import de.edgelord.saltyengine.input.MouseInputAdapter;
 import de.edgelord.saltyengine.utils.Directions;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public class Player extends GameObject {
 
@@ -17,6 +19,13 @@ public class Player extends GameObject {
 
     public Player(float width, float height) {
         super(Game.getHost().getHorizontalCentrePosition(width), 500, width, height, "player");
+
+        Input.addMouseInputHandler(new MouseInputAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                setX(e.getX() - getWidth() / 2f);
+            }
+        });
     }
 
     @Override

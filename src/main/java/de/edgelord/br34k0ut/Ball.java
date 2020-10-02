@@ -2,10 +2,10 @@ package de.edgelord.br34k0ut;
 
 import de.edgelord.saltyengine.components.FixedRate;
 import de.edgelord.saltyengine.core.Game;
+import de.edgelord.saltyengine.core.SceneManager;
 import de.edgelord.saltyengine.core.event.CollisionEvent;
 import de.edgelord.saltyengine.core.graphics.SaltyGraphics;
 import de.edgelord.saltyengine.gameobject.GameObject;
-import de.edgelord.saltyengine.scene.SceneManager;
 import de.edgelord.saltyengine.transform.Transform;
 import de.edgelord.saltyengine.utils.GeneralUtil;
 

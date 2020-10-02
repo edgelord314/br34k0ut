@@ -8,6 +8,14 @@
     <artifactId>br34k0ut</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>de.edgelord.salty-engine</groupId>
+            <artifactId>salty-engine</artifactId>
+            <version>0.14.20-local</version>
+        </dependency>
+    </dependencies>
+
     <properties>
         <java.version>1.10</java.version>
         <maven.compiler.source>1.10</maven.compiler.source>
@@ -56,12 +64,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>de.edgelord.salty-engine</groupId>
-            <artifactId>salty-engine</artifactId>
-            <version>0.14.18-local</version>
-        </dependency>
-    </dependencies>
 </project>
